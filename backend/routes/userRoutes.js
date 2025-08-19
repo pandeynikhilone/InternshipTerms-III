@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-
 // 2. Add new user
 router.post("/", async (req, res) => {
   try {
@@ -45,7 +44,6 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 // 3. Claim points for a user
 router.post("/claim/:id", async (req, res) => {
