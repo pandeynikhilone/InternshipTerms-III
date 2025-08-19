@@ -5,6 +5,11 @@ Built with **MERN stack** and deployed on **Render (backend)** + **Vercel (front
 
 ---
 
+![Preview](./readme/image-1.png)
+
+![Preview](./readme/image-2.png)
+
+
 ## 🚀 Features
 - Add new users to the leaderboard
 - Claim points for any user
@@ -12,7 +17,6 @@ Built with **MERN stack** and deployed on **Render (backend)** + **Vercel (front
 - View claim history of each user
 - Responsive UI with Tailwind CSS
 - Deployed live on cloud
-
 ---
 
 ## 🛠️ Tech Stack
