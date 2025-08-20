@@ -52,7 +52,7 @@ function App() {
         {/* Select User */}
         <div className="mb-4 flex gap-2 justify-center">
           <select
-            className="p-2  rounded border w-[182px] text-center"
+            className="p-2  rounded border w-[135px] sm:w-[182px] text-center"
             value={selectedUser}
             onChange={(e) => setSelectedUser(e.target.value)}
           >
@@ -77,13 +77,13 @@ function App() {
           <input
             type="text"
             placeholder="New user name"
-            className="p-2 border rounded"
+            className="p-2 border rounded w-[140px] md:w-fit"
             value={newUserName}
             onChange={(e) => setNewUserName(e.target.value)}
           />
           <button
             onClick={addUser}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            className="bg-green-500 w-[115px] md:w-fit text-white px-4 py-2 rounded hover:bg-green-600"
           >
             Add User
           </button>
