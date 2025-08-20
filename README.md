@@ -5,9 +5,12 @@ Built with **MERN stack** and deployed on **Render (backend)** + **Vercel (front
 
 ---
 
-![Preview](./readme/image-1.png)
+<img src="./readme/image-1.png" alt="Preview" width="600" height="350" />
 
-![Preview](./readme/image-2.png)
+<img src="./readme/image-2.png" alt="Preview" width="600" height="350" />
+
+<img src="./readme/image-3.png" alt="Preview" width="325" height="600" />
+
 
 
 ## 🚀 Features
