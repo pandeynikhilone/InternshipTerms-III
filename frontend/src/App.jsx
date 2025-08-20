@@ -45,13 +45,14 @@ function App() {
   };
 
   return (
-      <div className="min-h-screen  flex flex-col items-center p-6">
-        <h1 className="text-2xl font-bold mb-4">🏆 Leaderboard</h1>
+    <div className="min-h-screen  flex flex-col items-center p-6">
+      <h1 className="text-2xl font-bold mb-4">🏆 Leaderboard</h1>
 
+      <div className="sm:w-[500px]">
         {/* Select User */}
-        <div className="mb-4 flex gap-2">
+        <div className="mb-4 flex gap-2 justify-center">
           <select
-            className="p-2 rounded border"
+            className="p-2  rounded border w-[182px] text-center"
             value={selectedUser}
             onChange={(e) => setSelectedUser(e.target.value)}
           >
@@ -72,7 +73,7 @@ function App() {
         </div>
 
         {/* Add User */}
-        <div className="mb-4 flex gap-2">
+        <div className="mb-4 flex gap-2 justify-center">
           <input
             type="text"
             placeholder="New user name"
@@ -87,48 +88,46 @@ function App() {
             Add User
           </button>
         </div>
-
-        {/* Message */}
-        {message && (
-          <p className="mb-4 text-blue-600 font-semibold">{message}</p>
-        )}
-
-        {/* Leaderboard */}
-        <table className="bg-white shadow-md rounded-lg sm:w-[500px]">
-          <thead className="w-full">
-            <tr className="bg-gray-200">
-              <th className="p-2 text-left">Rank</th>
-              <th className="p-2 text-left">Name</th>
-              <th className="p-2 text-left">Points</th>
-            </tr>
-          </thead>
-            <tbody className="w-full">
-              {users.map((user) => {
-                let rowStyle = "";
-                if (user.rank === 1)
-                  rowStyle = "bg-yellow-100 font-bold"; // 🥇 Gold
-                else if (user.rank === 2)
-                  rowStyle = "bg-gray-200 font-semibold"; // 🥈 Silver
-                else if (user.rank === 3)
-                  rowStyle = "bg-orange-100 font-medium"; // 🥉 Bronze
-
-                return (
-                  <tr key={user._id} className={`border-b ${rowStyle}`}>
-                    <td className="p-2">
-                      {user.rank === 1 && "🥇"}
-                      {user.rank === 2 && "🥈"}
-                      {user.rank === 3 && "🥉"}
-                      {user.rank > 3 && user.rank}
-                    </td>
-                    <td className="p-2">{user.name}</td>
-                    <td className="p-2">{user.totalPoints}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-        </table>
-        <HistoryList userId={selectedUser} />
       </div>
+
+      {/* Message */}
+      {message && <p className="mb-4 text-blue-600 font-semibold">{message}</p>}
+
+      {/* Leaderboard */}
+      <table className="bg-white shadow-md rounded-lg sm:w-[500px]">
+        <thead className="w-full">
+          <tr className="bg-gray-200">
+            <th className="p-2 text-left">Rank</th>
+            <th className="p-2 text-left">Name</th>
+            <th className="p-2 text-left">Points</th>
+          </tr>
+        </thead>
+        <tbody className="w-full">
+          {users.map((user) => {
+            let rowStyle = "";
+            if (user.rank === 1)
+              rowStyle = "bg-yellow-100 font-bold"; // 🥇 Gold
+            else if (user.rank === 2)
+              rowStyle = "bg-gray-200 font-semibold"; // 🥈 Silver
+            else if (user.rank === 3) rowStyle = "bg-orange-100 font-medium"; // 🥉 Bronze
+
+            return (
+              <tr key={user._id} className={`border-b ${rowStyle}`}>
+                <td className="p-2">
+                  {user.rank === 1 && "🥇"}
+                  {user.rank === 2 && "🥈"}
+                  {user.rank === 3 && "🥉"}
+                  {user.rank > 3 && user.rank}
+                </td>
+                <td className="p-2">{user.name}</td>
+                <td className="p-2">{user.totalPoints}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <HistoryList userId={selectedUser} />
+    </div>
   );
 }
 
