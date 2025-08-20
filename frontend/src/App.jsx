@@ -45,8 +45,7 @@ function App() {
   };
 
   return (
-    <>
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+      <div className="min-h-screen  flex flex-col items-center p-6">
         <h1 className="text-2xl font-bold mb-4">🏆 Leaderboard</h1>
 
         {/* Select User */}
@@ -95,41 +94,41 @@ function App() {
         )}
 
         {/* Leaderboard */}
-        <table className="min-w-[400px] bg-white shadow-md rounded-lg">
-          <thead>
+        <table className="bg-white shadow-md rounded-lg sm:w-[500px]">
+          <thead className="w-full">
             <tr className="bg-gray-200">
               <th className="p-2 text-left">Rank</th>
               <th className="p-2 text-left">Name</th>
               <th className="p-2 text-left">Points</th>
             </tr>
           </thead>
-          <tbody>
-            {users.map((user) => {
-              let rowStyle = "";
-              if (user.rank === 1)
-                rowStyle = "bg-yellow-100 font-bold"; // 🥇 Gold
-              else if (user.rank === 2)
-                rowStyle = "bg-gray-200 font-semibold"; // 🥈 Silver
-              else if (user.rank === 3) rowStyle = "bg-orange-100 font-medium"; // 🥉 Bronze
+            <tbody className="w-full">
+              {users.map((user) => {
+                let rowStyle = "";
+                if (user.rank === 1)
+                  rowStyle = "bg-yellow-100 font-bold"; // 🥇 Gold
+                else if (user.rank === 2)
+                  rowStyle = "bg-gray-200 font-semibold"; // 🥈 Silver
+                else if (user.rank === 3)
+                  rowStyle = "bg-orange-100 font-medium"; // 🥉 Bronze
 
-              return (
-                <tr key={user._id} className={`border-b ${rowStyle}`}>
-                  <td className="p-2">
-                    {user.rank === 1 && "🥇"}
-                    {user.rank === 2 && "🥈"}
-                    {user.rank === 3 && "🥉"}
-                    {user.rank > 3 && user.rank}
-                  </td>
-                  <td className="p-2">{user.name}</td>
-                  <td className="p-2">{user.totalPoints}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+                return (
+                  <tr key={user._id} className={`border-b ${rowStyle}`}>
+                    <td className="p-2">
+                      {user.rank === 1 && "🥇"}
+                      {user.rank === 2 && "🥈"}
+                      {user.rank === 3 && "🥉"}
+                      {user.rank > 3 && user.rank}
+                    </td>
+                    <td className="p-2">{user.name}</td>
+                    <td className="p-2">{user.totalPoints}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
         </table>
         <HistoryList userId={selectedUser} />
       </div>
-    </>
   );
 }
 
